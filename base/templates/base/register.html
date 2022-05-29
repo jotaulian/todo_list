@@ -1,0 +1,24 @@
+{% extends 'base/main.html' %}
+{% block content%}
+    
+    
+    <h1 class="text-center mt-2 mb-5 ">Regístrate</h1>
+    
+    <div class="container d-flex justify-content-center  shadow-lg p-3 mb-5 bg-body rounded w-50">
+        <form action="" method="POST" class="p-5">
+            <!-- Token -->
+            {% csrf_token %}
+            <!-- Input -->
+            {% for field in form %}
+            <div class="form-group">
+                <label for="exampleFormControlInput1">{{field.label}}</label>
+                {{field}}
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary mb-2 w-100" value="Crear cuenta">
+        </form>
+    </div>
+    <div class="container d-flex justify-content-center mt-2">
+        <p>¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión</a> </p>
+    </div>
+{% endblock content%}

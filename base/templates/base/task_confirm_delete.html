@@ -1,0 +1,18 @@
+{% extends 'base/main.html' %}
+{% block content%}
+    <h1 class="text-center mt-2 mb-5 ">Crear Tarea</h1>
+
+    <div class="container">
+        <a href="{% url 'tasks' %}"><button type="button" class="btn btn-warning">Go back</button></a>
+    </div>
+    
+    <div class="container d-flex justify-content-center">
+        <form action="" method="POST" class="border border-warning rounded p-3 w-50">
+            <!-- Token -->
+            {% csrf_token %}
+            <!-- Pregunta -->
+            <p>¿Seguro que deseas eliminar esta tarea?</p>
+            <input type="submit" class="btn btn-primary mb-2" value="Eliminar">
+        </form>
+    </div>
+{% endblock content%}

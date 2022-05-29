@@ -1,0 +1,25 @@
+{% extends 'base/main.html' %}
+{% block content%}
+    <h1 class="text-center mt-2 ">Crear Tarea</h1>
+
+    <div class="container w-75">
+        <a href="{% url 'tasks' %}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-arrow-left"></i> Volver</button></a>
+    </div>
+    
+    <div class="container d-flex justify-content-center shadow-lg p-5 mb-5 bg-body rounded w-50">
+        <form action="" method="POST">
+            <!-- Token -->
+            {% csrf_token %}
+            <!-- Input -->
+            {% for field in form %}
+            <div class="form-group">
+                <label for="exampleFormControlInput1">{{field.label}}</label>
+                <br>  
+                {{field}}
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary mb-2 w-100" value="Guardar">
+        </form>
+    </div>
+
+{% endblock content%}
